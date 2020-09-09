@@ -311,9 +311,9 @@ Blockly.Toolbox.prototype.addCategory_ = function(categoryInfo, treeOut) {
   // Decode the category name for any potential message references
   // (eg. `%{BKY_CATEGORY_NAME_LOGIC}`).
   var categoryName = Blockly.utils.replaceMessageReferences(categoryInfo['name']);
-
+  var iconUri = categoryInfo['icon'];
   // Create and add the tree node for the category.
-  var childOut = this.tree_.createNode(categoryName);
+  var childOut = this.tree_.createNode(categoryName, iconUri);
   childOut.onSizeChanged(this.handleNodeSizeChanged_);
   childOut.contents = [];
   treeOut.add(childOut);
