@@ -326,7 +326,9 @@ Blockly.tree.TreeControl.prototype.getNodeFromEvent_ = function(e) {
  * @return {!Blockly.tree.TreeNode} The new item.
  * @package
  */
-Blockly.tree.TreeControl.prototype.createNode = function(opt_content) {
-  return new Blockly.tree.TreeNode(
-      this.toolbox_, opt_content || '', this.config_);
+Blockly.tree.TreeControl.prototype.createNode = function(opt_content, icon) {
+  //console.log(icon);
+  var node = new Blockly.tree.TreeNode(
+      this.toolbox_, opt_content || '', this.config_, icon);
+  return node;
 };

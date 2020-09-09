@@ -30,9 +30,10 @@ goog.require('Blockly.utils.style');
  * @constructor
  * @extends {Blockly.Component}
  */
-Blockly.tree.BaseNode = function(content, config) {
+Blockly.tree.BaseNode = function(content, config, icon) {
   Blockly.Component.call(this);
 
+  this.icon = icon;
   /**
    * Text content of the node label.
    * @type {string}
@@ -607,9 +608,11 @@ Blockly.tree.BaseNode.prototype.getLabelDom = function() {
  * @protected
  */
 Blockly.tree.BaseNode.prototype.getIconDom = function() {
-  var icon = document.createElement('span');
+  var icon = document.createElement('img');
   icon.style.display = 'inline-block';
-  icon.className = this.getCalculatedIconClass();
+  //icon.className = this.getCalculatedIconClass();
+  icon.className = 'customBlocklyIcon';
+  icon.src = this.icon;
   return icon;
 };
 
@@ -892,4 +895,8 @@ Blockly.tree.BaseNode.prototype.setTreeInternal = function(tree) {
     this.tree = tree;
     this.forEachChild(function(child) { child.setTreeInternal(tree); });
   }
+};
+
+Blockly.tree.BaseNode.prototype.setIcon = function(icon) {
+  this.icon = icon;
 };

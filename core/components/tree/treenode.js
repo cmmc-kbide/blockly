@@ -29,9 +29,9 @@ goog.require('Blockly.utils.KeyCodes');
  * @constructor
  * @extends {Blockly.tree.BaseNode}
  */
-Blockly.tree.TreeNode = function(toolbox, content, config) {
+Blockly.tree.TreeNode = function(toolbox, content, config, icon) {
   this.toolbox_ = toolbox;
-  Blockly.tree.BaseNode.call(this, content, config);
+  Blockly.tree.BaseNode.call(this, content, config, icon);
 
   /**
    * A handler that's triggered when the size of node has changed.
